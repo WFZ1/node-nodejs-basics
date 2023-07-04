@@ -1,8 +1,8 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'url';
-import { checkFileExists } from './utils/checkFileExists.js';
-import { throwError } from './utils/throwError.js';
+import { checkFileExists } from '../utils/checkFileExists.js';
+import { throwError } from '../utils/throwError.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const src = path.resolve(__dirname, 'files', 'wrongFilename.txt');
