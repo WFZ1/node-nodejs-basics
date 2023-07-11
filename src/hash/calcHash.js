@@ -1,11 +1,9 @@
-import path from 'node:path';
-import { fileURLToPath } from 'url';
 import { createHash } from 'node:crypto';
 import { createReadStream } from 'node:fs';
 import { stdout } from 'node:process';
+import { getFilePath } from '../utils/getFilePath.js';
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const src = path.resolve(__dirname, 'files', 'fileToCalculateHashFor.txt');
+const src = getFilePath(import.meta.url, ['files', 'fileToCalculateHashFor.txt']);
 
 const calculateHash = async () => {
     const hash = createHash('sha256');

@@ -1,12 +1,10 @@
 import fs from 'node:fs/promises';
-import path from 'node:path';
-import { fileURLToPath } from 'url';
 import { checkFileExists } from '../utils/checkFileExists.js';
 import { throwError } from '../utils/throwError.js';
+import { getFilePath } from '../utils/getFilePath.js';
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const src = path.resolve(__dirname, 'files', 'wrongFilename.txt');
-const newSrc = path.resolve(__dirname, 'files', 'properFilename.md');
+const src = getFilePath(import.meta.url, ['files', 'wrongFilename.txt']);
+const newSrc = getFilePath(import.meta.url, ['files', 'properFilename.md']);
 
 const rename = async () => {
     const isFileExists = await checkFileExists(newSrc);

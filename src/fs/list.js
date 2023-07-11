@@ -1,10 +1,8 @@
 import { readdir } from 'node:fs/promises';
-import path from 'node:path';
-import { fileURLToPath } from 'url';
 import { throwError } from '../utils/throwError.js';
+import { getFilePath } from '../utils/getFilePath.js';
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const src = path.resolve(__dirname, 'files');
+const src = getFilePath(import.meta.url, ['files']);
 
 const list = async () => {
     const files = await readdir(src).catch(() => throwError());
