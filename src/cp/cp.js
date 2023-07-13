@@ -1,6 +1,10 @@
+import { getFilePath } from '../utils/getFilePath.js';
+import { fork } from 'node:child_process';
+
+const src = getFilePath(import.meta.url, ['files', 'script.js']);
+
 const spawnChildProcess = async (args) => {
-    // Write your code here
+    fork(src, args);
 };
 
-// Put your arguments in function call to test this functionality
-spawnChildProcess( /* [someArgument1, someArgument2, ...] */);
+spawnChildProcess(['Hi', 'I am FE dev', 'I sleep', 0, 'hours.', 'It is', true]);
