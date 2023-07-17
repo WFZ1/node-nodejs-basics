@@ -3,5 +3,5 @@ import { fileURLToPath } from 'url';
 
 export const getFilePath = (url, paths) => {
     const __dirname = path.dirname(fileURLToPath(url));
-    return path.resolve(__dirname, ...paths);
+    return path.join(__dirname, ...paths);
 };
